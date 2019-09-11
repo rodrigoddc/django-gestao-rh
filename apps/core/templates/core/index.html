@@ -1,28 +1,33 @@
 {% extends 'base.html' %}
-{% block title %}
-Index
-{% endblock %}
+
+{% block title %} Index {% endblock %}
+
 {% block main %}
-<div class="row">
-    <div class="col">
+<div class="d-flex h-100">
+    <div class="col-md-12 mx-auto mt-4">
+
+        <div class="row">
+            <div class="col">
 <span class="h3">
         Seja bem-vindo {% if user.is_authenticated %} {{ usuario.funcionario.nome}}
 </span>
-        {% endif %}
-        <a href="{% url 'logout' %}"  class="btn btn-link float-right">Sair</a>
-    </div>
-</div>
+                {% endif %}
+                <a href="{% url 'logout' %}"  class="btn btn-link float-right">Sair</a>
+            </div>
+        </div>
 
-<div class="row">
-    <div class="col">
-        {% if usuario.funcionario.empresa %}
-        <a href="{% url 'funcionario:listar' %}" class="btn btn-info">Gerenciar Funcionários</a>
-        <a href="{% url 'departamento:listar' %}" class="btn btn-info">Gerenciar Departamentos</a>
+        <div class="row">
+            <div class="col">
+                {% if usuario.funcionario.empresa %}
+                <a href="{% url 'funcionario:listar' %}" class="btn btn-info">Gerenciar Funcionários</a>
+                <a href="{% url 'departamento:listar' %}" class="btn btn-info">Gerenciar Departamentos</a>
 
-        <a href="{% url 'empresa:empresa_editar' usuario.funcionario.empresa.id %}" class="btn btn-info">Editar Empresa</a>
-        {% else %}
-        <a href="{% url 'empresa:empresa_criar' %}" class="btn btn-link">Criar Empresa</a>
-        {% endif %}
+                <a href="{% url 'empresa:empresa_editar' usuario.funcionario.empresa.id %}" class="btn btn-info">Editar Empresa</a>
+                {% else %}
+                <a href="{% url 'empresa:empresa_criar' %}" class="btn btn-link">Criar Empresa</a>
+                {% endif %}
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -1,11 +1,18 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
+
 
 {% block title %} Nova Empresa {% endblock %}
 
 {% block main %}
-<form action="" method="post">
-     {% csrf_token %}
-    {{form}}
-    <button type="submit" class="btn btn-info">Criar</button>
-</form>
+<div class="d-flex h-100">
+    <div class="col-md-6 mx-auto align-self-center">
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form | bootstrap }}
+            <button type="submit" class="btn btn-info">Criar</button>
+        </form>
+    </div>
+</div>
 {% endblock %}
