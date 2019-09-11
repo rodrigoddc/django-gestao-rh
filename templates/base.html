@@ -13,7 +13,7 @@
     <title>{% block title %} Gestão RH | {% endblock %}</title>
 </head>
 <body>
-<div class="container">
+<div class="container" style="height: 100vh !important">
     {% block main %} {% endblock %}
 </div>
 
@@ -27,6 +27,7 @@
 <!-- Bootstrap 4 JS -->
 <script rel="script" src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script rel="script" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-
+<!-- Fontawesome -->
+<script src="https://kit.fontawesome.com/c697415758.js"></script>
 </body>
 </html>

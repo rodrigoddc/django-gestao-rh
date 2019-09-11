@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} Deletar Departamento {% endblock %}
+
+
+
+{% block main %}
+
+
+<div class="d-flex h-100">
+    <div class="col-md-6 mx-auto align-self-center">
+
+        <form method="post">
+            {% csrf_token %}
+            <span>Confirma a deleção do departamento {{ departamento }}?</span>
+            {{ form }}
+            <br>
+            <button type="subimt" class="btn btn-danger">Confirmar</button>
+        </form>
+
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,7 +1,28 @@
 {% extends 'base.html' %}
 {% block title %}
-    Index
+Index
 {% endblock %}
 {% block main %}
-    <span class="h3">Seja bem-vindo!</span>
+<div class="row">
+    <div class="col">
+<span class="h3">
+        Seja bem-vindo {% if user.is_authenticated %} {{ usuario.funcionario.nome}}
+</span>
+        {% endif %}
+        <a href="{% url 'logout' %}"  class="btn btn-link float-right">Sair</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        {% if usuario.funcionario.empresa %}
+        <a href="{% url 'funcionario:listar' %}" class="btn btn-info">Gerenciar Funcionários</a>
+        <a href="{% url 'departamento:listar' %}" class="btn btn-info">Gerenciar Departamentos</a>
+
+        <a href="{% url 'empresa:empresa_editar' usuario.funcionario.empresa.id %}" class="btn btn-info">Editar Empresa</a>
+        {% else %}
+        <a href="{% url 'empresa:empresa_criar' %}" class="btn btn-link">Criar Empresa</a>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

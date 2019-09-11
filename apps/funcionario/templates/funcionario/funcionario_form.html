@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Editar Funcionários {% endblock %}
+
+
+
+{% block main %}
+
+
+<div class="d-flex h-100">
+    <div class="col-md-6 mx-auto align-self-center">
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="subimt" class="btn btn-success">Salvar</button>
+        </form>
+
+    </div>
+</div>
+
+
+{% endblock %}

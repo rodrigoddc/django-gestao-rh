@@ -3,15 +3,19 @@
 {% block title %} Login {% endblock %}
 
 {% block main %}
-<form class="form-group" method="post">
-    {% csrf_token %}
+<div class="d-flex h-100">
+    <div class="col-md-6 mx-auto align-self-center">
+        <form class="form-group" method="post">
+            {% csrf_token %}
 
-    <label for="id_username" class="form-text">Usuário:</label>
-    <input type="text" name="username" autofocus="" required="" id="id_username" class="form-control">
+            <label for="id_username" class="form-text">Usuário:</label>
+            <input type="text" name="username" autofocus="" required="" id="id_username" class="form-control">
 
-    <label for="id_password" class="form-text">Senha:</label>
-    <input type="password" name="password" autofocus="" required="" id="id_password" class="form-control">
+            <label for="id_password" class="form-text">Senha:</label>
+            <input type="password" name="password" autofocus="" required="" id="id_password" class="form-control">
 
-    <button type="submit" class="btn btn-rounded btn-info form-control mt-3"> Login </button>
-</form>
+            <button type="submit" class="btn btn-info form-control mt-3">Entrar</button>
+        </form>
+    </div>
+</div>
 {% endblock %}
