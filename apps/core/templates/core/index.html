@@ -24,7 +24,7 @@
                 <a href="{% url 'departamento:listar' %}" class="btn btn-info">Gerenciar Departamentos</a>
                 <a href="{% url 'empresa:editar' usuario.funcionario.empresa.id %}" class="btn btn-info">Editar Empresa</a>
                 {% else %}
-                <a href="{% url 'empresa:salvar' %}" class="btn btn-link">Criar Empresa</a>
+                <a href="{% url 'empresa:criar' %}" class="btn btn-link">Criar Empresa</a>
                 {% endif %}
             </div>
         </div>
