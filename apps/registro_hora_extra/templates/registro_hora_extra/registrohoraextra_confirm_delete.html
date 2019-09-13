@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Deletar | Departamento {% endblock %}
+{% block title %} Deletar | Hora Extra {% endblock %}
 
 
 
@@ -12,7 +12,7 @@
 
         <form method="post">
             {% csrf_token %}
-            <span>Confirma a deleção do departamento {{ departamento }}?</span>
+            <span>Confirma a deleção de {{ horaextra.horas }} horas extras?</span>
             {{ form }}
             <br>
             <button type="subimt" class="btn btn-danger">Confirmar</button>

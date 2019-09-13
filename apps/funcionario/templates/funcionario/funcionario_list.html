@@ -9,7 +9,7 @@
 
 <div class="d-flex h-100">
     <div class="col-md-6 mx-auto align-self-center">
-
+        <p class="h2 mb-4">Listagem de Funcionários</p>
         {% for funcionario in object_list %}
         <div class="form-group">
             <div class="form-control">
@@ -29,13 +29,19 @@
                 </div>
             </div>
             {% endfor %}
-              <div class="mt-4">
-                    <a href="{% url 'funcionario:salvar' %}" class="btn btn-success "><span
-                            class="fa fa-plus"></span> Novo</a></div>
+            <div class="mt-4">
+                <a href="{% url 'funcionario:criar' %}" class="btn btn-success "><span
+                        class="fa fa-plus"></span> Novo
+                </a>
             </div>
-
+            <div class="mt-4">
+                <a href="{% url 'core:home' %}" class="btn btn-warning float-right">Voltar
+                </a>
+            </div>
         </div>
+
     </div>
+</div>
 
 
-    {% endblock %}
+{% endblock %}

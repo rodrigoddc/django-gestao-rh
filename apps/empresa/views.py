@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView
 
 from apps.empresa.models import Empresa
@@ -16,7 +17,6 @@ class EmpresaCreate(CreateView):
 
         return HttpResponse('OK')
 
-
 class EmpresaEdit(UpdateView):
     model = Empresa
-    fields = ['nome']
+    fields = ['nome',]

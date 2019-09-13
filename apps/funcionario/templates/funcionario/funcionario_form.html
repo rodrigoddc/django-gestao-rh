@@ -14,15 +14,27 @@
         <form method="post">
             {% csrf_token %}
             {{ form | bootstrap }}
+
+            {% for documento in funcionario.documento_set.all %}
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{{ documento.arquivo.url }}">{{ documento }}</a>
+                </li>
+            </ul>
+            {% endfor %}
             <div class="mt-2">
-                <a href="{% url 'documento:salvar' %}" class="btn btn-info "><span
-                        class="fa fa-plus"></span> Documento</a>
+                <button type="submit" class="btn btn-success">Salvar</button>
             </div>
-            <div class="mt-2">
-                <button type="subimt" class="btn btn-success">Salvar</button>
-            </div>
+        </form>
+        {% if funcionario %}
+        <div class="mt-2">
+            <a href="{% url 'documento:criar' funcionario.pk %}" class="btn btn-info ">
+                <span class="fa fa-plus"></span>
+                Documento
+            </a>
+        </div>
+        {% endif %}
     </div>
-    </form>
 </div>
 
 

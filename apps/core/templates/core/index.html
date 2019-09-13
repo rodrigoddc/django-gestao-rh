@@ -20,11 +20,11 @@
             <div class="col">
                 {% if usuario.funcionario.empresa %}
                 <a href="{% url 'funcionario:listar' %}" class="btn btn-info">Gerenciar Funcionários</a>
+                <a href="{% url 'horaextra:listar' %}" class="btn btn-info">Gerenciar Horas Extras</a>
                 <a href="{% url 'departamento:listar' %}" class="btn btn-info">Gerenciar Departamentos</a>
-
-                <a href="{% url 'empresa:empresa_editar' usuario.funcionario.empresa.id %}" class="btn btn-info">Editar Empresa</a>
+                <a href="{% url 'empresa:editar' usuario.funcionario.empresa.id %}" class="btn btn-info">Editar Empresa</a>
                 {% else %}
-                <a href="{% url 'empresa:empresa_criar' %}" class="btn btn-link">Criar Empresa</a>
+                <a href="{% url 'empresa:salvar' %}" class="btn btn-link">Criar Empresa</a>
                 {% endif %}
             </div>
         </div>

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %}_for
 {% load bootstrap %}
 
 
@@ -8,7 +8,7 @@
 <div class="d-flex h-100">
     <div class="col-md-6 mx-auto align-self-center">
 
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form | bootstrap }}
             <button type="submit" class="btn btn-success">Salvar</button>
