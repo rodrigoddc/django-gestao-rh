@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load bootstrap %}
+{% load static %}
 
 {% block title %} Detalhe | Hora Extra {% endblock %}
 
@@ -10,8 +11,26 @@
         <form method="post">
             {% csrf_token %}
             {{ form | bootstrap }}
+            <span>Toltal de horas: <p id="total_hora_extra">{{ object.funcionario.total_hora_extra }}</p></span>
+            <p class="text-danger mensagem h5"></p>
+            <div class="span mt-3">
+                <a onclick="utilizouhoraextra( {{ object.pk }}, 'True' )" class="btn btn-outline-warning">Marcar como Utilizada</a>
+                <a onclick="utilizouhoraextra( {{ object.pk }}, 'False' )" class="btn btn-outline-warning">Marcar como não Utilizada</a>
+            </div>
+
+            <div class="span mt-3">
             <button type="subimt" class="btn btn-success">Salvar</button>
+            {% if object %}
+                <a href="{% url 'horaextra:deletar' object.pk %}" class="btn btn-danger float-right">Deletar</a>
+            {% endif %}
+            </div>
         </form>
     </div>
 </div>
+
+{% endblock %}
+
+{% block static %}
+<script src="{% static 'js/jquerry.js' %}"></script>
+<script src="{% static 'js/funcoes-ajax.js' %}"></script>
 {% endblock %}

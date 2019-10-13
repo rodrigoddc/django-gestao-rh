@@ -8,13 +8,14 @@
 {% block main %}
 
 
-<div class="d-flex h-100">
+<div class="d-flex">
     <div class="col-md-6 mx-auto align-self-center">
 
         <form method="post">
             {% csrf_token %}
             {{ form | bootstrap }}
 
+            <p class="h5">Documentos</p>
             {% for documento in funcionario.documento_set.all %}
             <ul class="list-group">
                 <li class="list-group-item">
@@ -22,18 +23,49 @@
                 </li>
             </ul>
             {% endfor %}
+
+            {% if funcionario.registrohoraextra_set.exists %}
+            <p class="h5 mt-2">Horas Extras</p>
+            {% for registro in funcionario.registrohoraextra_set.all %}
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{% url 'horaextra:atualizar-por-funcionario' registro.pk %}">{{ registro.motivo }} - {{ registro.horas }}</a>
+                </li>
+            </ul>
+            {% endfor %}
+
+            <p class="text-danger">Total hora extra: {{ object.total_hora_extra }}</p>
+            {% else %}
+            <p class="text-info h5">Nenhuma hora extra</p>
+            {% endif %}
+
             <div class="mt-2">
                 <button type="submit" class="btn btn-success">Salvar</button>
             </div>
         </form>
-        {% if funcionario %}
-        <div class="mt-2">
-            <a href="{% url 'documento:criar' funcionario.pk %}" class="btn btn-info ">
-                <span class="fa fa-plus"></span>
-                Documento
-            </a>
+        <div class="container">
+            {% if funcionario %}
+            <div class="row">
+                <div class="mt-2 col-md p-0">
+                    <a href="{% url 'documento:criar' funcionario.pk %}" class="btn btn-info ">
+                        <span class="fa fa-plus"></span>
+                        Documento
+                    </a>
+                </div>
+                <div class="mt-2 col p-0">
+                    <a href="{% url 'horaextra:criar-por-funcionario' funcionario.pk %}" class="btn btn-info ">
+                        <span class="fa fa-plus"></span>
+                        Hora Extra
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="mt-4">
+                <a href="{% url 'funcionario:listar' %}" class="btn btn-warning float-right">Voltar
+                </a>
+            </div>
         </div>
-        {% endif %}
     </div>
 </div>
 

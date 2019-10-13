@@ -20,6 +20,7 @@
             <div class="col">
                 {% if usuario.funcionario.empresa %}
                 <a href="{% url 'funcionario:listar' %}" class="btn btn-info">Gerenciar Funcionários</a>
+                <a href="{% url 'funcionario:pdf_reportlab' %}" class="btn btn-warning">Gerar PDF ReportLab</a>
                 <a href="{% url 'horaextra:listar' %}" class="btn btn-info">Gerenciar Horas Extras</a>
                 <a href="{% url 'departamento:listar' %}" class="btn btn-info">Gerenciar Departamentos</a>
                 <a href="{% url 'empresa:editar' usuario.funcionario.empresa.id %}" class="btn btn-info">Editar Empresa</a>
