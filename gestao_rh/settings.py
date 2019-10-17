@@ -29,15 +29,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #minhas apps
     'apps.empresa',
     'apps.funcionario',
     'apps.departamento',
     'apps.documento',
     'apps.core',
     'apps.registro_hora_extra',
+
+    #app do segundo banco
+    'apps.app_antiga',
+
+    #plugins
     'bootstrapform',
 
-    #api
+    #api REST Framework
     'rest_framework',
     'rest_framework.authtoken',
 ]
@@ -80,6 +87,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'banco_antigo': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'banco_antigo.sqlite3'),
     }
 }
 
@@ -132,3 +143,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 
 LOGIN_REDIRECT_URL = 'core:home'
 LOGOUT_REDIRECT_URL = 'login'
+
+#roteamento de Bancos
+DATABASE_ROUTERS = ['gestao_rh.DBRoutes.DBRoutes']
