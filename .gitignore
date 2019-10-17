@@ -5,3 +5,4 @@ venv
 gestao_rh/__pycache__/
 /media
 static
+local_settings.py
