@@ -1,4 +1,4 @@
-from .location_settings import *
+from .local_settings import *
 
 DEBUG = True
 
